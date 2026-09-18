@@ -62,20 +62,9 @@ Where:
 
 ---
 
-## Local Development & Setup
+## Recommended Resource
 
-To run the project locally without any dependencies:
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/Geervan/SnakesNLadder-Prediction.git
-cd SnakesNLadder-Prediction
-
-# 2. Serve using any local static server
-python -m http.server 8080
-# Or using Node:
-npx serve .
-```
+* **Video on Markov Chains by Veritasium**: [https://youtu.be/KZeIEiBrT_w](https://youtu.be/KZeIEiBrT_w)
 
 ---
 
