@@ -1,0 +1,244 @@
+/* ==========================================================================
+   Snakes & Ladders Lab: Header & Navigation
+   Dark Wooden Plaque Header, Inset Brass Edge Inlays, Refined Nav Links
+   ========================================================================== */
+
+.main-header {
+  background: linear-gradient(180deg, #381f12 0%, #22120a 100%);
+  border: 2px solid var(--color-wood-border);
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  box-shadow: 
+    0 6px 14px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+}
+
+/* Brand Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.brand-icon {
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(circle at 35% 35%, #eed298 0%, #c29447 60%, #7a5412 100%);
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 2px 0 #523508,
+    0 3px 6px rgba(0,0,0,0.35),
+    inset 0 1px 1.5px rgba(255,255,255,0.6);
+  border: 1px solid #ffe1a0;
+  color: #24130b;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #f7eedb;
+  text-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.6);
+}
+
+.brand-tag {
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #cbb085;
+  display: block;
+  margin-top: -2px;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+/* Nav Menu */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link {
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #cfbcab;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: var(--radius-xs);
+  transition: all 0.15s ease;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-link.active {
+  color: #ffffff;
+  background: linear-gradient(180deg, rgba(194, 148, 71, 0.35) 0%, rgba(100, 60, 25, 0.4) 100%);
+  border: 1px solid rgba(214, 171, 98, 0.5);
+  box-shadow: 
+    inset 0 1px 2px rgba(0, 0, 0, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 2px;
+  background: var(--color-brass);
+  border-radius: 1px;
+  box-shadow: 0 0 5px rgba(214, 171, 98, 0.8);
+}
+
+/* Header Action Button */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-nav-action {
+  background: linear-gradient(180deg, #c74e30 0%, var(--color-terracotta) 100%);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-xs);
+  border: 1px solid #912e17;
+  text-decoration: none;
+  box-shadow: 
+    0 2px 0 var(--color-terracotta-dark),
+    0 3px 6px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+  transition: all 0.12s ease;
+  white-space: nowrap;
+}
+
+.btn-nav-action:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 3px 0 var(--color-terracotta-dark),
+    0 5px 8px rgba(0,0,0,0.3);
+}
+
+.btn-nav-action:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 var(--color-terracotta-dark);
+}
+
+/* Mobile Nav Toggle Button */
+.mobile-nav-toggle {
+  display: none;
+  background: linear-gradient(180deg, #442416 0%, #28140a 100%);
+  border: 1.5px solid #8c5d35;
+  color: #f7eedb;
+  font-size: 1.3rem;
+  line-height: 1;
+  padding: 6px 12px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  box-shadow: 
+    0 2px 0 #180a04,
+    0 3px 6px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+  user-select: none;
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+
+.mobile-nav-toggle:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 #180a04;
+}
+
+/* Mobile Navigation Breakpoint */
+@media (max-width: 860px) {
+  .mobile-nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-title {
+    font-size: 1.12rem;
+  }
+
+  .header-actions .btn-nav-action {
+    display: none; /* Keep header clean on small screens */
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, #2b170e 0%, #1a0c06 100%);
+    border: 2px solid #7c4826;
+    border-radius: var(--radius-sm);
+    flex-direction: column;
+    padding: 10px;
+    gap: 6px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    z-index: 200;
+    animation: menuSlideDown 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .main-nav.show {
+    display: flex;
+  }
+
+  .main-nav .nav-link {
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 0.92rem;
+    border-radius: var(--radius-xs);
+    border: 1px solid transparent;
+  }
+
+  .main-nav .nav-link.active {
+    background: linear-gradient(180deg, rgba(201, 138, 44, 0.3) 0%, rgba(140, 90, 21, 0.35) 100%);
+    border-color: rgba(226, 184, 110, 0.5);
+  }
+
+  .main-nav .nav-link.active::after {
+    display: none;
+  }
+}
+
+@keyframes menuSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

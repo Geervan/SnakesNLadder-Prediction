@@ -1,0 +1,745 @@
+/**
+ * Snakes & Ladders Lab: Geervan's Experiment Styles
+ * 3D Creative Neo-Brutalism benchmark cards & worker pool runner.
+ */
+
+.experiment-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.experiment-hero-card {
+  background: #fdfaf5;
+  border: 4px solid #140d07;
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow: 10px 10px 0px #140d07;
+  position: relative;
+}
+
+.experiment-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+/* 3D Creative Neo-Brutalist KPI Box */
+.experiment-kpi-box {
+  border: 3.5px solid #140d07;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 6px 6px 0px #140d07;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.15s ease;
+  cursor: default;
+}
+
+.experiment-kpi-box:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px #140d07;
+}
+
+/* Vibrant Neo-Brutalist Colorways */
+.experiment-kpi-box.exp-box-sims {
+  background: #fff066; /* Sunflower Yellow */
+}
+
+.experiment-kpi-box.exp-box-mean {
+  background: #fed7aa; /* Electric Tangerine */
+}
+
+.experiment-kpi-box.exp-box-m70 {
+  background: #86efac; /* Mint Emerald */
+}
+
+.experiment-kpi-box.exp-box-m75 {
+  background: #d8b4fe; /* Electric Lavender */
+}
+
+.experiment-kpi-box.exp-box-m80 {
+  background: #93c5fd; /* Sky Blue */
+}
+
+.experiment-kpi-box.exp-box-ratio {
+  background: #fca5a5; /* Rose Coral */
+}
+
+.experiment-kpi-label {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #140d07;
+  background: #ffffff;
+  border: 2px solid #140d07;
+  border-radius: 6px;
+  padding: 2px 8px;
+  box-shadow: 2px 2px 0px #140d07;
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+}
+
+.experiment-kpi-val {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: #140d07;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.experiment-kpi-sub {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #2b1b11;
+  border-top: 1.5px dashed rgba(20, 13, 7, 0.35);
+  padding-top: 6px;
+  margin-top: auto;
+}
+
+/* Cross-Board Synthesis in 3D Neo-Brutalist White Box */
+.synthesis-card {
+  background: #ffffff;
+  border: 4px solid #140d07;
+  border-radius: 18px;
+  padding: 22px 26px;
+  box-shadow: 8px 8px 0px #140d07;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.synthesis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.synthesis-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #140d07;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.synthesis-intro {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #140d07;
+  font-weight: 600;
+  margin: 0;
+}
+
+.synthesis-milestones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.synthesis-milestone-item {
+  border: 2.5px solid #140d07;
+  border-radius: 10px;
+  padding: 10px 12px;
+  box-shadow: 4px 4px 0px #140d07;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.synthesis-milestone-item:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #140d07;
+}
+
+.synthesis-milestone-item.m-70 {
+  background: #86efac; /* Mint */
+}
+
+.synthesis-milestone-item.m-75 {
+  background: #d8b4fe; /* Lavender */
+}
+
+.synthesis-milestone-item.m-80 {
+  background: #93c5fd; /* Sky Blue */
+}
+
+.synthesis-milestone-item.m-90 {
+  background: #fed7aa; /* Tangerine */
+}
+
+.milestone-pct {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #140d07;
+  letter-spacing: 0.03em;
+}
+
+.milestone-move {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #140d07;
+  line-height: 1.1;
+}
+
+.milestone-rate {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #2b1b11;
+  border-top: 1.5px dashed rgba(20, 13, 7, 0.3);
+  padding-top: 4px;
+}
+
+.synthesis-takeaway {
+  background: #fdf8ee;
+  border: 2px solid #140d07;
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: 3px 3px 0px #140d07;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #140d07;
+  font-weight: 600;
+}
+
+.synthesis-footer-action {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 2px dashed #140d07;
+  flex-wrap: wrap;
+}
+
+.btn-start-live-exp {
+  background: #22c55e;
+  color: #140d07;
+  border: 3px solid #140d07;
+  box-shadow: 4px 4px 0px #140d07;
+  font-weight: 900;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.btn-start-live-exp:hover {
+  background: #4ade80;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #140d07;
+}
+
+.btn-start-live-exp:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #140d07;
+}
+
+.synthesis-footer-hint {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #3b281b;
+}
+
+/* Master Table in 3D Neo-Brutalism */
+.master-table-container {
+  background: #ffffff;
+  border: 4px solid #140d07;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 10px 10px 0px #140d07;
+}
+
+.master-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.master-table-title-group h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #140d07;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.master-table-title-group p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.master-table-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.table-responsive-master {
+  overflow-x: auto;
+  border: 3px solid #140d07;
+  border-radius: 12px;
+  box-shadow: 4px 4px 0px #140d07;
+}
+
+.master-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+  text-align: left;
+  background: #ffffff;
+}
+
+.master-data-table thead {
+  background: #fff066;
+  border-bottom: 3px solid #140d07;
+}
+
+.master-data-table th {
+  padding: 12px 14px;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  color: #140d07;
+  white-space: nowrap;
+  border-right: 1.5px solid #140d07;
+}
+
+.master-data-table th:last-child {
+  border-right: none;
+}
+
+.master-data-table td {
+  padding: 10px 14px;
+  border-bottom: 1.5px solid #140d07;
+  border-right: 1.5px solid #140d07;
+  color: #140d07;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.master-data-table td:last-child {
+  border-right: none;
+}
+
+.master-data-table tbody tr:hover {
+  background: #fdfae6;
+}
+
+.master-data-table tr.pooled-row {
+  background: #fed7aa !important;
+  border-top: 3px solid #140d07;
+  border-bottom: 3px solid #140d07;
+  font-weight: 900;
+}
+
+.master-data-table tr.pooled-row td {
+  padding: 14px;
+  color: #140d07;
+  font-weight: 900;
+}
+
+.master-data-table .val-highlight {
+  font-family: var(--font-mono);
+  font-weight: 900;
+  color: #c2410c;
+}
+
+.master-data-table .val-mono {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.master-data-table .val-dim {
+  color: #8c7361;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Live 100M Simulation Runner in 3D Neo-Brutalism
+   ========================================================================== */
+
+.live-runner-card {
+  background: #ffffff;
+  border: 4px solid #140d07;
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow: 10px 10px 0px #140d07;
+}
+
+.runner-control-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+  background: #fffdf5;
+  border: 3px solid #140d07;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  box-shadow: 4px 4px 0px #140d07;
+}
+
+.runner-buttons-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#btn-runner-start {
+  background: #22c55e;
+  color: #140d07;
+  border: 3px solid #140d07;
+  box-shadow: 4px 4px 0px #140d07;
+  font-weight: 900;
+  border-radius: 10px;
+  padding: 9px 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+#btn-runner-start:hover:not(:disabled) {
+  background: #4ade80;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #140d07;
+}
+
+#btn-runner-start:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #140d07;
+}
+
+#btn-runner-pause, #btn-runner-resume, #btn-runner-cancel {
+  background: #ffffff;
+  color: #140d07;
+  border: 3px solid #140d07;
+  box-shadow: 3px 3px 0px #140d07;
+  font-weight: 900;
+  border-radius: 10px;
+  padding: 9px 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+#btn-runner-pause:hover:not(:disabled),
+#btn-runner-resume:hover:not(:disabled),
+#btn-runner-cancel:hover:not(:disabled) {
+  background: #f7f1e5;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #140d07;
+}
+
+#btn-runner-pause:active:not(:disabled),
+#btn-runner-resume:active:not(:disabled),
+#btn-runner-cancel:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #140d07;
+}
+
+#btn-download-json {
+  background: #ffffff;
+  color: #140d07;
+  border: 2.5px solid #140d07;
+  box-shadow: 3.5px 3.5px 0px #140d07;
+  font-weight: 900;
+  border-radius: 8px;
+  padding: 6px 14px;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+#btn-download-json:hover {
+  background: #fff066;
+  transform: translate(-1px, -1px);
+  box-shadow: 4.5px 4.5px 0px #140d07;
+}
+
+#btn-download-json:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #140d07;
+}
+
+/* Global Progress Monitor in 3D Brutalism */
+.global-progress-box {
+  background: #fffdf8;
+  border: 3.5px solid #140d07;
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  box-shadow: 6px 6px 0px #140d07;
+}
+
+.global-progress-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.global-progress-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #140d07;
+}
+
+.global-progress-stats {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: #140d07;
+  background: #ffffff;
+  border: 2px solid #140d07;
+  border-radius: 6px;
+  padding: 2px 8px;
+  box-shadow: 2px 2px 0px #140d07;
+}
+
+.progress-track-lg {
+  height: 20px;
+  background: #f1e4d0;
+  border: 2.5px solid #140d07;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 2px 2px 0px rgba(0,0,0,0.12);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #ffd000;
+  border-right: 2.5px solid #140d07;
+  border-radius: 4px;
+  transition: width 0.15s ease-out;
+}
+
+.global-metrics-strip {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: #140d07;
+  flex-wrap: wrap;
+}
+
+.metric-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 2px solid #140d07;
+  border-radius: 8px;
+  padding: 6px 12px;
+  box-shadow: 2.5px 2.5px 0px #140d07;
+  font-weight: 800;
+}
+
+.metric-tag strong {
+  font-family: var(--font-mono);
+  font-weight: 900;
+  color: #140d07;
+}
+
+/* 10 Boards Grid in 3D Neo-Brutalism */
+.boards-runner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.board-job-card {
+  background: #ffffff;
+  border: 3px solid #140d07;
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 5px 5px 0px #140d07;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.board-job-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0px #140d07;
+}
+
+.board-job-card.active {
+  background: #eff6ff;
+  border-color: #140d07;
+  box-shadow: 6px 6px 0px #140d07;
+}
+
+.board-job-card.completed {
+  background: #f0fdf4;
+  border-color: #140d07;
+}
+
+.job-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.job-board-name {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 900;
+  color: #140d07;
+}
+
+.job-card-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: #2b1b11;
+  font-family: var(--font-mono);
+  font-weight: 800;
+}
+
+.job-progress-track {
+  height: 12px;
+  background: #f4ede2;
+  border: 2px solid #140d07;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.job-progress-fill {
+  height: 100%;
+  background: #22c55e;
+  border-right: 2px solid #140d07;
+  transition: width 0.15s ease-out;
+}
+
+.job-card-stats {
+  font-size: 0.76rem;
+  color: #140d07;
+  font-weight: 800;
+  border-top: 2px dashed #140d07;
+  padding-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   EXPERIMENT MOBILE RESPONSIVENESS
+   ========================================================================== */
+
+@media (max-width: 860px) {
+  .experiment-hero-card,
+  .experiment-runner-card,
+  .synthesis-card,
+  .milestone-card {
+    padding: 16px 14px;
+    border-radius: 14px;
+    border-width: 3px;
+    box-shadow: 5px 5px 0px #140d07;
+  }
+
+  .experiment-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .milestone-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .synthesis-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .breakthrough-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .boards-runner-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .runner-controls-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .runner-presets-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    width: 100%;
+  }
+
+  .runner-actions-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .btn-run-massive {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .experiment-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experiment-kpi-val {
+    font-size: 1.45rem;
+  }
+
+  .experiment-title {
+    font-size: 1.25rem;
+  }
+
+  .synthesis-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+

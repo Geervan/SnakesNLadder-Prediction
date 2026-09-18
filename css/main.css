@@ -1,0 +1,956 @@
+/* ==========================================================================
+   Snakes & Ladders Lab: Main Theme & Typography
+   Aesthetic: Rich Polished Wood Desk, Aged Parchment & Tactile Board Game
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Fredoka:wght@600;700&family=Fira+Code:wght@500;600&display=swap');
+
+:root {
+  /* Rich Wood & Parchment Palette */
+  --color-wood-dark: #1e1008;
+  --color-wood-medium: #331a0e;
+  --color-wood-light: #4c2815;
+  --color-wood-border: #68391e;
+  --color-wood-bevel: #7e4626;
+  
+  --color-parchment-deep: #d8c49d;
+  --color-parchment-base: #f5edd8;
+  --color-parchment-card: #fdfaf4;
+  --color-parchment-card-alt: #eee0c8;
+  --color-parchment-border: #d4be9b;
+  --color-parchment-border-light: #ebdcc6;
+
+  /* Cartoony 3D Accent Colors */
+  --color-terracotta: #cc4522;
+  --color-terracotta-dark: #8c280f;
+  --color-terracotta-hover: #e0532e;
+  --color-terracotta-light: #faeae5;
+  
+  --color-navy: #1f3b58;
+  --color-navy-dark: #122336;
+  --color-navy-hover: #294c70;
+  
+  --color-gold: #c98a2c;
+  --color-gold-dark: #8c5a15;
+  --color-gold-light: #faefd8;
+  --color-brass: #a46d1f;
+
+  --color-jungle-green: #385427;
+  --color-jungle-dark: #233617;
+
+  /* Player Colors (Gleaming 3D Orbs) */
+  --color-p1: #1f6eb2;
+  --color-p1-dark: #124370;
+  --color-p1-light: #e6f1fb;
+  --color-p1-glow: rgba(31, 110, 178, 0.4);
+
+  --color-p2: #cc4522;
+  --color-p2-dark: #8c280f;
+  --color-p2-light: #faece8;
+  --color-p2-glow: rgba(204, 69, 34, 0.4);
+
+  /* Typography Colors */
+  --text-main: #24140a;
+  --text-muted: #5e4738;
+  --text-subtle: #877161;
+  --text-light: #fdfaf3;
+  --text-gold: #f2cb7c;
+
+  /* Typography Families */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  /* Shadows & Depth */
+  --shadow-sm: 0 2px 5px rgba(34, 20, 13, 0.08);
+  --shadow-md: 0 6px 16px rgba(34, 20, 13, 0.14), 0 2px 4px rgba(34, 20, 13, 0.08);
+  --shadow-lg: 0 16px 36px rgba(26, 14, 8, 0.35), 0 4px 10px rgba(26, 14, 8, 0.18);
+  --shadow-wood: inset 0 2px 4px rgba(255, 255, 255, 0.2), inset 0 -3px 8px rgba(0, 0, 0, 0.6), 0 14px 32px rgba(0, 0, 0, 0.55);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+
+  /* Board Dimensions */
+  --board-max-width: 440px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: var(--font-body);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  /* Rich Polished Walnut / Warm Oak Wooden Desk Tabletop */
+  background-color: #3b2214;
+  background-image: 
+    linear-gradient(90deg, rgba(0,0,0,0.18) 0%, transparent 3%, transparent 97%, rgba(0,0,0,0.18) 100%),
+    repeating-linear-gradient(180deg, 
+      #311b0e 0px, 
+      #3b2112 35px, 
+      #462716 70px, 
+      #381e10 105px, 
+      #2b160a 140px,
+      #3b2112 175px
+    ),
+    radial-gradient(ellipse at 50% 30%, rgba(95, 54, 28, 0.45) 0%, rgba(18, 9, 4, 0.75) 100%);
+  background-blend-mode: multiply, normal, normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+}
+
+/* Site Wrapper: Zero Outer Scroll, Fits Viewport */
+.site-wrapper {
+  max-width: 1360px;
+  width: 100%;
+  height: calc(100vh - 16px);
+  max-height: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Outer Wood Frame with Inset Carved Depth */
+.wood-frame {
+  background: linear-gradient(180deg, #482918 0%, #2f180d 60%, #1f0f08 100%);
+  border: 4px solid #683d23;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-wood);
+  padding: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.wood-frame::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1.5px dashed rgba(226, 184, 110, 0.35);
+  border-radius: calc(var(--radius-lg) - 4px);
+  pointer-events: none;
+}
+
+/* Lush Botanical Corner Foliage */
+.botanical-foliage {
+  position: absolute;
+  pointer-events: none;
+  z-index: 50;
+  filter: drop-shadow(0 6px 12px rgba(10, 20, 5, 0.55));
+}
+
+.foliage-top-left {
+  top: -8px;
+  left: -8px;
+  width: 90px;
+  height: 90px;
+}
+
+.foliage-top-right {
+  top: -8px;
+  right: -8px;
+  width: 90px;
+  height: 90px;
+  transform: scaleX(-1);
+}
+
+.foliage-bottom-left {
+  bottom: -8px;
+  left: -8px;
+  width: 85px;
+  height: 85px;
+  transform: scaleY(-1);
+}
+
+.foliage-bottom-right {
+  bottom: -8px;
+  right: -8px;
+  width: 90px;
+  height: 90px;
+  transform: scale(-1, -1);
+}
+
+/* Main Parchment Surface Sheet with Warm Aged Amber Glow */
+.parchment-sheet {
+  background-color: var(--color-parchment-base);
+  background-image: 
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.7) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(201, 138, 44, 0.16) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(228, 206, 178, 0.5) 0%, rgba(249, 242, 228, 0.9) 50%, rgba(224, 198, 168, 0.55) 100%);
+  border-radius: calc(var(--radius-lg) - 6px);
+  border: 2px solid var(--color-parchment-border);
+  box-shadow: 
+    inset 0 0 50px rgba(100, 55, 20, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.3);
+  padding: 16px 22px;
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+   HOMEPAGE HERO COMPOSITION
+   ========================================================================== */
+
+.hero-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 20px;
+  align-items: center;
+  flex: 1;
+  min-height: 0;
+}
+
+.hero-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-bg-art {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 380px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.28;
+}
+
+.hero-text-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.3rem, 3.6vw, 3.1rem);
+  font-weight: 800;
+  line-height: 1.08;
+  color: #24140a;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.hero-body-text {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #463428;
+  max-width: 440px;
+  font-weight: 500;
+}
+
+.btn-hero-cta {
+  font-size: 0.92rem;
+  padding: 10px 24px;
+  border-radius: var(--radius-md);
+}
+
+/* Hero Center Board Preview (Larger, Majestic Physical Object) */
+.hero-board-col {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.hero-board-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  aspect-ratio: 1 / 1;
+}
+
+.hero-board-wrapper .board-container {
+  max-width: 100%;
+  height: 100%;
+}
+
+/* Pinned Story Note */
+.hero-pinned-note {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(145deg, #fffde6 0%, #fdf5cc 100%);
+  border: 1.5px solid #ebd9a2;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  box-shadow: 
+    0 8px 18px rgba(70, 45, 15, 0.2),
+    0 2px 4px rgba(70, 45, 15, 0.1);
+  transform: rotate(3.5deg);
+  z-index: 20;
+  max-width: 170px;
+}
+
+.hero-pinned-note .pin-head {
+  position: absolute;
+  top: -7px;
+  left: 10px;
+  width: 15px;
+  height: 15px;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #d8c29d 60%, #9e8760 100%);
+  border-radius: 4px;
+  border: 1px solid #baa27c;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.hero-pinned-note .pinned-text {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #3b2516;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* 3D Dice Cluster (Positioned to the LEFT of the board) */
+.hero-dice-cluster {
+  position: absolute;
+  bottom: 4px;
+  left: -30px;
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  z-index: 25;
+  pointer-events: auto;
+  cursor: pointer;
+  filter: drop-shadow(0 8px 16px rgba(18, 9, 4, 0.4));
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero-dice-cluster:hover {
+  transform: translateY(-3px) scale(1.06);
+}
+
+.hero-dice {
+  width: 58px;
+  height: 58px;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dice-left {
+  transform: rotate(-14deg);
+}
+
+.dice-right {
+  transform: rotate(16deg) translateY(6px) translateX(-12px);
+}
+
+.hero-dice-cluster.is-rolling .dice-left {
+  animation: diceTumbleLeft 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero-dice-cluster.is-rolling .dice-right {
+  animation: diceTumbleRight 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@keyframes diceTumbleLeft {
+  0% { transform: rotate(-14deg) translateY(0) scale(1); }
+  20% { transform: rotate(-26deg) translateY(-18px) translateX(-2px) scale(1.12); }
+  45% { transform: rotate(-6deg) translateY(-24px) translateX(4px) scale(1.14); }
+  65% { transform: rotate(-20deg) translateY(-8px) translateX(-2px) scale(1.05); }
+  82% { transform: rotate(-12deg) translateY(2px) scale(0.96); }
+  100% { transform: rotate(-14deg) translateY(0) scale(1); }
+}
+
+@keyframes diceTumbleRight {
+  0% { transform: rotate(16deg) translateY(6px) translateX(-12px) scale(1); }
+  20% { transform: rotate(28deg) translateY(-14px) translateX(-8px) scale(1.12); }
+  45% { transform: rotate(6deg) translateY(-22px) translateX(-16px) scale(1.14); }
+  65% { transform: rotate(24deg) translateY(-4px) translateX(-10px) scale(1.05); }
+  82% { transform: rotate(14deg) translateY(8px) translateX(-13px) scale(0.96); }
+  100% { transform: rotate(16deg) translateY(6px) translateX(-12px) scale(1); }
+}
+
+/* ==========================================================================
+   CREATIVE & TACTILE BOTTOM FEATURE CARDS
+   ========================================================================== */
+
+.hero-features-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+
+.hero-feature-pill {
+  background: linear-gradient(180deg, #fdf6ec 0%, #f5e4cd 50%, #edd3b4 100%);
+  border: 2px solid #debfa0;
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  box-shadow: 
+    0 4px 0 #baa07c,
+    0 8px 16px rgba(60, 35, 15, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s ease, border-color 0.15s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-feature-pill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.hero-feature-pill:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-gold);
+  box-shadow: 
+    0 7px 0 #baa07c,
+    0 12px 20px rgba(60, 35, 15, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.hero-feature-pill:active {
+  transform: translateY(2px);
+  box-shadow: 
+    0 2px 0 #baa07c,
+    0 4px 8px rgba(60, 35, 15, 0.15);
+}
+
+/* Creative Tactile Icon Container */
+.pill-icon-box {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(180deg, #ffffff 0%, #faefe0 100%);
+  border: 1.5px solid #d8be9f;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7a4628;
+  flex-shrink: 0;
+  box-shadow: 
+    0 3px 0 #baa07c,
+    0 4px 8px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.pill-icon-svg {
+  width: 24px;
+  height: 24px;
+}
+
+.pill-text-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.pill-title {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #2b1d14;
+  margin-bottom: 2px;
+  letter-spacing: -0.01em;
+}
+
+.pill-desc {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   CARTOONY 3D TACTILE BUTTON SYSTEM
+   ========================================================================== */
+.btn-3d, .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 9px 20px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+  position: relative;
+  transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease, background 0.15s ease;
+  outline: none;
+}
+
+/* Primary 3D Button: Vibrant Terracotta */
+.btn-primary {
+  background: linear-gradient(180deg, #de5432 0%, var(--color-terracotta) 100%);
+  color: #ffffff;
+  border: 1.5px solid #ff886a;
+  border-bottom: none;
+  box-shadow: 
+    0 5px 0 var(--color-terracotta-dark),
+    0 8px 14px rgba(140, 40, 15, 0.35),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.45);
+  text-shadow: 0 1px 2px rgba(80, 15, 0, 0.5);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(180deg, #ed6240 0%, #d84b27 100%);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 7px 0 var(--color-terracotta-dark),
+    0 11px 18px rgba(140, 40, 15, 0.4),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.55);
+}
+
+.btn-primary:active {
+  transform: translateY(4px);
+  box-shadow: 
+    0 1px 0 var(--color-terracotta-dark),
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Secondary 3D Button: Warm Cream */
+.btn-secondary {
+  background: linear-gradient(180deg, #ffffff 0%, #faefe0 100%);
+  color: var(--text-main);
+  border: 1.5px solid #eedec8;
+  border-bottom: none;
+  box-shadow: 
+    0 4px 0 #baa48b,
+    0 6px 12px rgba(60, 40, 20, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(180deg, #ffffff 0%, #fff6ea 100%);
+  border-color: #dfcaa8;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 0 #baa48b,
+    0 9px 14px rgba(60, 40, 20, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.btn-secondary:active {
+  transform: translateY(3px);
+  box-shadow: 
+    0 1px 0 #baa48b,
+    0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Navy 3D Button */
+.btn-navy {
+  background: linear-gradient(180deg, #2b4e72 0%, var(--color-navy) 100%);
+  color: #ffffff;
+  border: 1.5px solid #48729c;
+  border-bottom: none;
+  box-shadow: 
+    0 5px 0 var(--color-navy-dark),
+    0 8px 14px rgba(18, 35, 54, 0.4),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn-navy:hover {
+  background: linear-gradient(180deg, #375f8a 0%, #26476b 100%);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 7px 0 var(--color-navy-dark),
+    0 11px 18px rgba(18, 35, 54, 0.45);
+}
+
+.btn-navy:active {
+  transform: translateY(4px);
+  box-shadow: 
+    0 1px 0 var(--color-navy-dark),
+    0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.2) !important;
+}
+
+/* Parchment Card Component */
+.parchment-card {
+  background: var(--color-parchment-card);
+  border: 1.5px solid var(--color-parchment-border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  box-shadow: 
+    0 4px 10px rgba(50, 30, 15, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.parchment-card.interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-gold);
+}
+
+/* Neo-Brutalist Sticker Badge Component (No Pills) */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 2px solid #140d07;
+  box-shadow: 2.5px 2.5px 0px #140d07;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.badge:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3.5px 3.5px 0px #140d07;
+}
+
+.badge-gold {
+  background: #ffd000;
+  color: #140d07;
+}
+
+.badge-wood {
+  background: #fed7aa;
+  color: #140d07;
+}
+
+.badge-olive {
+  background: #86efac;
+  color: #140d07;
+}
+
+.badge-terracotta {
+  background: #fca5a5;
+  color: #140d07;
+}
+
+.badge-navy {
+  background: #93c5fd;
+  color: #140d07;
+}
+
+/* Page Section Container (Fitted & Animated) */
+.page-section {
+  display: none;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 2px;
+  animation: pageSlideUp 0.22s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.page-section::-webkit-scrollbar {
+  width: 5px;
+}
+.page-section::-webkit-scrollbar-thumb {
+  background: var(--color-parchment-border);
+  border-radius: 4px;
+}
+
+.page-section.active {
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes pageSlideUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   TACTILE MAIN FOOTER & AUTHOR CREDITS (CENTERED)
+   ========================================================================== */
+.main-footer {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1.5px dashed var(--color-parchment-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-align: center;
+  width: 100%;
+}
+
+.footer-credit {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+}
+
+.footer-credit strong {
+  color: var(--text-main);
+  font-weight: 800;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.footer-link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f7efe2;
+  border: 1.5px solid #d8c2a4;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-family: var(--font-heading);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-decoration: none;
+  box-shadow: 2px 2px 0px #baa07c;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.footer-link-pill:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px #baa07c;
+  border-color: var(--color-gold);
+  color: var(--color-terracotta);
+}
+
+.footer-link-pill:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #baa07c;
+}
+
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE SYSTEM
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  html, body {
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body {
+    padding: 4px 4px 20px 4px;
+    display: block;
+  }
+
+  .site-wrapper {
+    height: auto;
+    min-height: 100vh;
+    max-height: none;
+    width: 100%;
+  }
+
+  .wood-frame {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+    padding: 6px;
+    border-width: 2px;
+    border-radius: var(--radius-md);
+  }
+
+  .parchment-sheet {
+    height: auto;
+    min-height: calc(100vh - 65px);
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding: 14px 10px;
+    margin-top: 6px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .page-section {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding-right: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .botanical-foliage {
+    display: none;
+  }
+
+  /* Hero Section Mobile Adaptation */
+  .hero-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    text-align: center;
+  }
+
+  .hero-text-col {
+    align-items: center;
+    padding: 6px 4px;
+  }
+
+  .hero-headline {
+    font-size: clamp(1.85rem, 6.5vw, 2.5rem);
+    margin-bottom: 8px;
+  }
+
+  .hero-body-text {
+    margin: 0 auto 14px auto;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .hero-board-col {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .hero-board-wrapper {
+    max-width: 100%;
+  }
+
+  .hero-dice-cluster {
+    left: -10px;
+    bottom: -6px;
+    transform: scale(0.85);
+  }
+
+  .hero-pinned-note {
+    top: -12px;
+    right: -6px;
+    max-width: 135px;
+    font-size: 0.72rem;
+    padding: 6px 10px;
+    transform: rotate(2deg);
+  }
+
+  .hero-features-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .hero-feature-pill {
+    padding: 10px 14px;
+    gap: 12px;
+  }
+
+  .pill-icon-box {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pill-icon-svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .pill-title {
+    font-size: 0.86rem;
+  }
+
+  .pill-desc {
+    font-size: 0.74rem;
+  }
+
+  .section-title {
+    font-size: 1.35rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 2px 2px 16px 2px;
+  }
+
+  .wood-frame {
+    padding: 4px;
+    border-radius: var(--radius-sm);
+  }
+
+  .parchment-sheet {
+    padding: 10px 8px;
+    border-radius: var(--radius-sm);
+  }
+
+  .hero-headline {
+    font-size: 1.7rem;
+  }
+
+  .btn {
+    font-size: 0.84rem;
+    padding: 8px 16px;
+  }
+
+  .hero-board-col {
+    max-width: 300px;
+  }
+
+  .hero-dice-cluster {
+    left: -14px;
+    bottom: -10px;
+    transform: scale(0.75);
+  }
+}

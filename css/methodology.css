@@ -1,0 +1,398 @@
+/* ==========================================================================
+   Snakes & Ladders Lab: Methodology Page Styling
+   Markov Chain Diagrams, Step-by-Step Educational Callouts
+   ========================================================================== */
+
+.methodology-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20px;
+  align-items: start;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Sticky Methodology Sidebar (Desktop) */
+.methodology-nav-sticky {
+  background: var(--color-parchment-card);
+  border: 1.5px solid var(--color-parchment-border);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 4px 10px rgba(50, 30, 15, 0.08);
+  position: sticky;
+  top: 80px;
+  align-self: start;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.method-nav-item {
+  padding: 8px 12px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+  display: block;
+  border-left: 3px solid transparent;
+}
+
+.method-nav-item:hover {
+  background: #f2e5d0;
+  color: var(--text-main);
+}
+
+.method-nav-item.active {
+  background: #ecdcc6;
+  color: var(--color-terracotta);
+  font-weight: 700;
+  border-left: 3px solid var(--color-terracotta);
+}
+
+/* Methodology Content Sections */
+.methodology-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.method-section {
+  background: var(--color-parchment-card);
+  border: 1.5px solid var(--color-parchment-border);
+  border-radius: var(--radius-md);
+  padding: 20px 22px;
+  box-shadow: 0 4px 10px rgba(50, 30, 15, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-margin-top: 80px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+.method-section h3 {
+  font-size: 1.25rem;
+  color: var(--text-main);
+  border-bottom: 1.5px solid var(--color-parchment-border);
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.method-section p {
+  color: var(--text-main);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+/* Grid layout for method cards */
+.method-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 4px 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.method-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin: 4px 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.method-card {
+  background: #f7efe2;
+  border: 1.5px solid #ded0bd;
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.method-card-title {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.method-card-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* State Flow Diagram Box */
+.state-diagram-box {
+  background: #f5eedf;
+  border: 1.5px solid #e0cfb8;
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin: 6px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.diagram-node {
+  background: #ffffff;
+  border: 2px solid #5a3623;
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.diagram-node-title {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.diagram-node-desc {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.diagram-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-heading);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--color-terracotta);
+}
+
+.diagram-arrow svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--color-terracotta);
+  stroke-width: 2.5;
+  fill: none;
+}
+
+/* Mathematical Formula Box */
+.math-formula-box {
+  background: #2a160c;
+  color: #f7eedb;
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  line-height: 1.55;
+  border-left: 4px solid var(--color-gold);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.math-formula-box .formula-line {
+  margin-bottom: 6px;
+}
+
+.math-formula-box .formula-line:last-child {
+  margin-bottom: 0;
+}
+
+.math-comment {
+  color: #c4b097;
+  font-style: italic;
+  font-size: 0.78rem;
+}
+
+.method-callout {
+  background: #fdf5e6;
+  border: 1.5px solid #ebd9a8;
+  border-left: 4px solid var(--color-gold);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.callout-heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: #8c5d1b;
+  margin-bottom: 4px;
+}
+
+/* Data & Comparison Tables in Methodology */
+.method-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+  margin: 6px 0;
+}
+
+.method-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  min-width: 480px;
+}
+
+.method-table th,
+.method-table td {
+  padding: 8px 12px;
+  border: 1px solid var(--color-parchment-border);
+  text-align: left;
+}
+
+.method-table th {
+  background: #ebdcc6;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.method-table td {
+  background: #faf4ea;
+  color: var(--text-main);
+}
+
+.method-table tr:nth-child(even) td {
+  background: #f3ebd8;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE TWEAKS FOR METHODOLOGY
+   ========================================================================== */
+
+@media (max-width: 860px) {
+  .methodology-layout {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .methodology-nav-sticky {
+    position: sticky;
+    top: 0px;
+    z-index: 50;
+    flex-direction: row;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    padding: 6px;
+    gap: 6px;
+    background: #eedec8;
+    border: 1.5px solid var(--color-parchment-border);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 4px 10px rgba(50, 30, 15, 0.1);
+    scrollbar-width: none;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 6px;
+  }
+
+  .methodology-nav-sticky::-webkit-scrollbar {
+    display: none;
+  }
+
+  .method-nav-item {
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    padding: 6px 12px;
+    font-size: 0.76rem;
+    flex-shrink: 0;
+    background: #f5eedf;
+  }
+
+  .method-nav-item.active {
+    border-left: none;
+    border-bottom: 3px solid var(--color-terracotta);
+    background: #ffffff;
+    color: var(--color-terracotta);
+  }
+
+  .method-section {
+    padding: 16px 14px;
+    scroll-margin-top: 54px;
+    border-radius: var(--radius-sm);
+  }
+
+  .method-grid-2,
+  .method-grid-3 {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .state-diagram-box {
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 10px;
+  }
+
+  .state-diagram-box .diagram-node {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .state-diagram-box .diagram-arrow {
+    flex-direction: row;
+    gap: 6px;
+  }
+
+  .state-diagram-box .diagram-arrow svg {
+    transform: rotate(90deg);
+  }
+
+  .math-formula-box {
+    font-size: 0.76rem;
+    padding: 10px 12px;
+  }
+}
