@@ -278,13 +278,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 16px;
+  padding: 16px 20px;
+  min-height: 0;
 }
 
 .hero-board-wrapper {
   position: relative;
   width: 100%;
-  max-width: 380px;
+  max-width: min(340px, 46vh);
   aspect-ratio: 1 / 1;
   margin: 0 auto;
 }
@@ -297,18 +298,18 @@ body {
 /* Pinned Story Note */
 .hero-pinned-note {
   position: absolute;
-  top: -8px;
-  right: -8px;
+  top: -10px;
+  right: -20px;
   background: linear-gradient(145deg, #fffde6 0%, #fdf5cc 100%);
   border: 1.5px solid #ebd9a2;
   border-radius: var(--radius-sm);
-  padding: 10px 14px;
+  padding: 9px 13px;
   box-shadow: 
     0 8px 18px rgba(70, 45, 15, 0.2),
     0 2px 4px rgba(70, 45, 15, 0.1);
   transform: rotate(3.5deg);
   z-index: 20;
-  max-width: 160px;
+  max-width: 155px;
 }
 
 .hero-pinned-note .pin-head {
@@ -325,7 +326,7 @@ body {
 
 .hero-pinned-note .pinned-text {
   font-family: var(--font-body);
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: #3b2516;
   line-height: 1.25;
